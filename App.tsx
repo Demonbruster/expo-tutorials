@@ -28,6 +28,10 @@ export default function App() {
       <Image source={{ uri: BG_IMG }} style={StyleSheet.absoluteFillObject} blurRadius={80} />
       <Animated.FlatList
         data={DATA}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true }
+        )}
         keyExtractor={item => item.key}
         contentContainerStyle={{ padding: SPACING, paddingTop: RNStatusBar.currentHeight || 42 }}
         renderItem={({ item, index }) => {

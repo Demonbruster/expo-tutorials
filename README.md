@@ -1,2 +1,3 @@
 # expo-tutorials
-[![Expo tutorial screen shots](./assets/idea.png?raw=true)] 
+## screen shots
+(./assets/idea.png?raw=true)

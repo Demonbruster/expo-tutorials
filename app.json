@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "animated-scroll-item",
-    "slug": "animated-scroll-item",
+    "name": "expo-tutorials",
+    "slug": "expo-tutorials",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

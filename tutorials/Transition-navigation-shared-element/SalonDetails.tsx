@@ -1,12 +1,14 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import { SPACING } from '../../utils/extras'
+import { SharedElement } from 'react-navigation-shared-element';
 import { NavigationProp } from '@react-navigation/native';
+import * as Animatable from 'react-native-animatable'
+
+import { SPACING } from '../../utils/extras'
 import Layout from '../../utils/Layout';
 import { ITEM_HEIGHT } from './SalonList';
 import { detailsIcons } from './salon';
-import * as Animatable from 'react-native-animatable'
 
 interface Props {
   navigation: NavigationProp<any, any>,
@@ -34,78 +36,86 @@ const SalonDetails = (props: Props) => {
         color={'#333'}
         onPress={() => { props.navigation.goBack() }}
       />
-      <View style={[StyleSheet.absoluteFillObject, {
-        backgroundColor: item.color,
-        borderRadius: 0,
-        padding: SPACING,
-        height: TOP_HEADER_HEIGHT + 32
-      }]} />
-      <Text style={styles.name}>{item.name}</Text>
+      <SharedElement id={`item.${item.key}.bg`} style={[StyleSheet.absoluteFillObject]}>
+        <View style={[StyleSheet.absoluteFillObject, {
+          backgroundColor: item.color,
+          borderRadius: 0,
+          padding: SPACING,
+          height: TOP_HEADER_HEIGHT + 32
+        }]} />
+      </SharedElement>
+      <SharedElement id={`item.${item.key}.name`}>
+        <Text style={styles.name}>{item.name}</Text>
+      </SharedElement>
       <Text style={styles.jobTitle}>{item.jobTitle}</Text>
-      <Image style={styles.image} source={{ uri: item.image }} />
-      <View style={styles.bg} >
-        <ScrollView>
-          <View style={{
-            flexDirection: "row",
-            justifyContent: 'space-evenly',
-            marginVertical: SPACING,
-            marginBottom: SPACING
-          }}>
-            {detailsIcons.map((dIcon: any, index) => {
-              return (
+      <SharedElement id={`item.${item.key}.image`}>
+        <Image style={styles.image} source={{ uri: item.image }} />
+      </SharedElement>
+      <SharedElement id='general.bg'>
+        <View style={styles.bg} >
+          <ScrollView>
+            <View style={{
+              flexDirection: "row",
+              justifyContent: 'space-evenly',
+              marginVertical: SPACING,
+              marginBottom: SPACING
+            }}>
+              {detailsIcons.map((dIcon: any, index) => {
+                return (
+                  <Animatable.View
+                    animation="bounceIn"
+                    delay={DURATION + index * 100}
+                    key={`${dIcon.icon}-${index}`}
+                    style={{
+                      backgroundColor: dIcon.color,
+                      height: 64,
+                      width: 64,
+                      borderRadius: 32,
+                      alignItems: 'center',
+                      justifyContent: "center"
+                    }}>
+                    <Ionicons name={dIcon.icon} size={24} color={"white"} />
+                  </Animatable.View>
+                )
+              })}
+            </View>
+            <View>
+              {item.categories.map((category: any, index: number) => (
                 <Animatable.View
-                  animation="bounceIn"
-                  delay={DURATION + index * 100}
-                  key={`${dIcon.icon}-${index}`}
-                  style={{
-                    backgroundColor: dIcon.color,
-                    height: 64,
-                    width: 64,
-                    borderRadius: 32,
-                    alignItems: 'center',
-                    justifyContent: "center"
-                  }}>
-                  <Ionicons name={dIcon.icon} size={24} color={"white"} />
+                  key={`category.key-${category.key}`}
+                  style={{ marginVertical: SPACING }}
+                  animation="fadeInUp"
+                  delay={DURATION + index * 200}
+                >
+                  <Text style={styles.title}>{category.title}</Text>
+                  {category.subcats.map((subCat: any, index: number) => (
+                    <View key={`Category.subcats-${index}`} style={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      marginBottom: SPACING / 2,
+                      marginLeft: SPACING
+                    }}>
+                      <View style={{
+                        height: 8,
+                        width: 8,
+                        borderRadius: 4,
+                        backgroundColor: 'gold',
+                        marginRight: SPACING,
+                      }} />
+                      <Text style={styles.subTitle}>{subCat}</Text>
+                    </View>
+                  ))}
                 </Animatable.View>
-              )
-            })}
-          </View>
-          <View>
-            {item.categories.map((category: any, index: number) => (
-              <Animatable.View
-                key={`category.key-${category.key}`}
-                style={{ marginVertical: SPACING }}
-                animation="fadeInUp"
-                delay={DURATION + index * 200}
-              >
-                <Text style={styles.title}>{category.title}</Text>
-                {category.subcats.map((subCat: any, index: number) => (
-                  <View key={`Category.subcats-${index}`} style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    marginBottom: SPACING / 2,
-                    marginLeft: SPACING
-                  }}>
-                    <View style={{
-                      height: 8,
-                      width: 8,
-                      borderRadius: 4,
-                      backgroundColor: 'gold',
-                      marginRight: SPACING,
-                    }} />
-                    <Text style={styles.subTitle}>{subCat}</Text>
-                  </View>
-                ))}
-              </Animatable.View>
-            ))}
-          </View>
-        </ScrollView>
-      </View>
+              ))}
+            </View>
+          </ScrollView>
+        </View>
+      </SharedElement>
     </View>
   )
 }
 
-export default SalonDetails
+export default SalonDetails;
 
 const styles = StyleSheet.create({
   name: {

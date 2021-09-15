@@ -21,7 +21,8 @@ const Stack = createStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="animatedScrollView" component={TransitionNavSharedNavigator} />
+      <Stack.Screen name="AnimatedScrollView" component={AnimatedScrollItems} />
+      <Stack.Screen name="TransitionNavShared" component={TransitionNavSharedNavigator}/>
     </Stack.Navigator>
   )
 }
@@ -40,6 +41,9 @@ function TransitionNavSharedNavigator() {
           },
           {
             id: `item.${item.key}.name`
+          },
+          {
+            id: `item.${item.key}.jobTitle`
           },
           {
             id: `item.${item.key}.image`

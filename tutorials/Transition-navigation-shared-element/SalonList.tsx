@@ -39,7 +39,9 @@ const SalonList = (props: Props) => {
               <SharedElement id={`item.${item.key}.name`}>
                 <Text style={styles.name}>{item.name}</Text>
               </SharedElement>
+              <SharedElement id={`item.${item.key}.jobTitle`}>
               <Text style={styles.jobTitle}>{item.jobTitle}</Text>
+              </SharedElement>
               <SharedElement id={`item.${item.key}.image`} style={styles.image}>
                 <Image style={styles.image} source={{ uri: item.image }} />
               </SharedElement>
@@ -65,7 +67,8 @@ const styles = StyleSheet.create({
   jobTitle: {
     fontSize: 11,
     opacity: .7,
-    marginTop: 18 * 1.2
+    marginTop: 18 * 1.2,
+    position: 'absolute'
   },
   image: {
     width: ITEM_HEIGHT * .8,

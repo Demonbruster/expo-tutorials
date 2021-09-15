@@ -2,6 +2,12 @@ import React from 'react';
 import { StatusBar as RNStatusBar, Image, Animated, Text, View, StyleSheet } from 'react-native';
 import faker from 'faker'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { NavigationProp } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+interface IProps {
+  navigation: NavigationProp<any, any>
+}
 
 faker.seed(10);
 const DATA = [...Array(30).keys()].map((_, i) => {
@@ -20,7 +26,7 @@ const ITEM_SIZE = AVATAR_SIZE + SPACING * 3;
 
 const BG_IMG = 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260';
 
-export default function AnimatedScrollItems() {
+export default function AnimatedScrollItems(props: IProps) {
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
   return (
@@ -59,34 +65,36 @@ export default function AnimatedScrollItems() {
             outputRange: [1, 1, 1, 0]
           })
 
-          return <Animated.View
-            style={{
-              flexDirection: "row",
-              padding: SPACING,
-              marginBottom: SPACING,
-              backgroundColor: "rgba(255,255,255,0.8)",
-              borderRadius: 12,
-              shadowColor: "#000000",
-              shadowOffset: {
-                width: 0,
-                height: 10,
-              },
-              shadowOpacity: .3,
-              shadowRadius: 20,
-              elevation: 50,
-              transform: [{ scale }],
-              opacity
-            }}>
-            <Image
-              source={{ uri: item.image }}
-              style={{ width: AVATAR_SIZE, height: AVATAR_SIZE, borderRadius: AVATAR_SIZE, marginRight: SPACING / 2 }}
-            />
-            <View>
-              <Text style={{ fontSize: 20, fontWeight: '700' }}>{item.name}</Text>
-              <Text style={{ fontSize: 16, opacity: .7 }}>{item.jobTitle}</Text>
-              <Text style={{ fontSize: 12, opacity: .8, color: "#0099cc" }}>{item.email}</Text>
-            </View>
-          </Animated.View>
+          return <TouchableOpacity onPress={()=>{props.navigation.navigate('TransitionNavShared')}}>
+            <Animated.View
+              style={{
+                flexDirection: "row",
+                padding: SPACING,
+                marginBottom: SPACING,
+                backgroundColor: "rgba(255,255,255,0.8)",
+                borderRadius: 12,
+                shadowColor: "#000000",
+                shadowOffset: {
+                  width: 0,
+                  height: 10,
+                },
+                shadowOpacity: .3,
+                shadowRadius: 20,
+                elevation: 50,
+                transform: [{ scale }],
+                opacity
+              }}>
+              <Image
+                source={{ uri: item.image }}
+                style={{ width: AVATAR_SIZE, height: AVATAR_SIZE, borderRadius: AVATAR_SIZE, marginRight: SPACING / 2 }}
+              />
+              <View>
+                <Text style={{ fontSize: 20, fontWeight: '700' }}>{item.name}</Text>
+                <Text style={{ fontSize: 16, opacity: .7 }}>{item.jobTitle}</Text>
+                <Text style={{ fontSize: 12, opacity: .8, color: "#0099cc" }}>{item.email}</Text>
+              </View>
+            </Animated.View>
+          </TouchableOpacity>
         }} />
     </SafeAreaView>
   );

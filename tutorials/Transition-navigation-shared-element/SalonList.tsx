@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     borderRadius: ITEM_HEIGHT * .8,
     resizeMode: 'contain',
     position: "absolute",
-    top: ((ITEM_HEIGHT / 2) - (ITEM_HEIGHT * .8) / 2),
+    top: ((ITEM_HEIGHT / 2) - (((ITEM_HEIGHT * .8) / 2) + 5)),
     right: ((ITEM_HEIGHT / 2) - (ITEM_HEIGHT * .8) / 2)
   },
   bg: {

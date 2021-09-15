@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@ant-design/react-native": "^4.2.0",
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-masked-view/masked-view": "0.2.4",

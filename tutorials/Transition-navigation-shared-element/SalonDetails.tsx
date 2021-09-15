@@ -6,6 +6,7 @@ import { NavigationProp } from '@react-navigation/native';
 import Layout from '../../utils/Layout';
 import { ITEM_HEIGHT } from './SalonList';
 import { detailsIcons } from './salon';
+import * as Animatable from 'react-native-animatable'
 
 interface Props {
   navigation: NavigationProp<any, any>,
@@ -14,6 +15,7 @@ interface Props {
 
 const { height, width } = Layout.window;
 const TOP_HEADER_HEIGHT = height * 0.3;
+const DURATION = 400;
 
 const SalonDetails = (props: Props) => {
   const { item } = props.route.params
@@ -51,7 +53,9 @@ const SalonDetails = (props: Props) => {
           }}>
             {detailsIcons.map((dIcon: any, index) => {
               return (
-                <View
+                <Animatable.View
+                  animation="bounceIn"
+                  delay={DURATION + index * 100}
                   key={`${dIcon.icon}-${index}`}
                   style={{
                     backgroundColor: dIcon.color,
@@ -62,13 +66,18 @@ const SalonDetails = (props: Props) => {
                     justifyContent: "center"
                   }}>
                   <Ionicons name={dIcon.icon} size={24} color={"white"} />
-                </View>
+                </Animatable.View>
               )
             })}
           </View>
           <View>
             {item.categories.map((category: any, index: number) => (
-              <View key={`category.key-${category.key}`} style={{ marginVertical: SPACING }}>
+              <Animatable.View
+                key={`category.key-${category.key}`}
+                style={{ marginVertical: SPACING }}
+                animation="fadeInUp"
+                delay={DURATION + index * 200}
+              >
                 <Text style={styles.title}>{category.title}</Text>
                 {category.subcats.map((subCat: any, index: number) => (
                   <View key={`Category.subcats-${index}`} style={{
@@ -87,7 +96,7 @@ const SalonDetails = (props: Props) => {
                     <Text style={styles.subTitle}>{subCat}</Text>
                   </View>
                 ))}
-              </View>
+              </Animatable.View>
             ))}
           </View>
         </ScrollView>

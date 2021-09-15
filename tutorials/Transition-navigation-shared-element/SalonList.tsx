@@ -10,14 +10,16 @@ interface Props {
   navigation: NavigationProp<any, any>
 }
 
-const ITEM_HEIGHT = Layout.window.height * 0.18
+const { height , width} = Layout.window;
+
+export const ITEM_HEIGHT = height * 0.18
 
 const SalonList = (props: Props) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <FlatList
         data={salonData}
-        keyExtractor={item => item.key}
+        keyExtractor={item => `item.key-${item.key}`}
         contentContainerStyle={{ padding: SPACING }}
         renderItem={({ item }) => {
           return <TouchableOpacity onPress={() => {
@@ -34,6 +36,7 @@ const SalonList = (props: Props) => {
           </TouchableOpacity>
         }}
       />
+      <View style={styles.bg}/>
     </SafeAreaView>
   )
 }
@@ -57,5 +60,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: ((ITEM_HEIGHT / 2) - (ITEM_HEIGHT * .8) / 2),
     right: ((ITEM_HEIGHT / 2) - (ITEM_HEIGHT * .8) / 2)
+  },
+  bg:{
+    position:'absolute',
+    width ,
+    height ,
+    backgroundColor:"red",
+    transform:[{translateY:height}],
+    borderRadius:32
   }
 })

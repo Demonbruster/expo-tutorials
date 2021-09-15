@@ -11,9 +11,9 @@ const colors = [
 
 
 export const detailsIcons = [
-  { colors: "#9fd7f1", icon: "isv" },
-  { colors: "#f3b000", icon: "trophy" },
-  { colors: "#f2988f", icon: "edit" },
+  { color: "#9fd7f1", icon: "document" },
+  { color: "#f3b000", icon: "trophy" },
+  { color: "#f2988f", icon: "pencil" },
 ];
 
 const salonData = _.times(20, (n) => {

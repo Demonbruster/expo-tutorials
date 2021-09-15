@@ -2,10 +2,33 @@
 # yarn lockfile v1
 
 
+"@ant-design/colors@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"
+  integrity sha512-qAZRvPzfdWHtfameEGP2Qvuf838NhergR35o+EuVyB5XvSA98xod5r4utvi4TJ3ywmevm290g9nsCG5MryrdWQ==
+  dependencies:
+    "@ctrl/tinycolor" "^3.4.0"
+
 "@ant-design/icons-react-native@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@ant-design/icons-react-native/-/icons-react-native-2.3.1.tgz#62eb3a0c5371c35b069dd60b7c02901016ffd7eb"
   integrity sha512-nLUhEP6doFtavnRO95mxTD8NoLcVJXT0fEvIQca5BJjHQeqJxroAFKbSBkS0TvRi6dJurAel38b+b8IWVXY8uQ==
+
+"@ant-design/icons-svg@^4.0.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons-svg/-/icons-svg-4.1.0.tgz#480b025f4b20ef7fe8f47d4a4846e4fee84ea06c"
+  integrity sha512-Fi03PfuUqRs76aI3UWYpP864lkrfPo0hluwGqh7NJdLhvH4iRDc3jbJqZIvRDLHKbXrvAfPPV3+zjUccfFvWOQ==
+
+"@ant-design/icons@^4.6.4":
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-4.6.4.tgz#21b037dbb90ee1bb7c632cca057006e57d992fd9"
+  integrity sha512-li02J8ym721E24N3bw1oXRzFDV7m2MYQWs+WtJgVVjhNRv4sc6vL2a2M7SS8rWX3Uc/3GJfrokIJnMrmbIMuXQ==
+  dependencies:
+    "@ant-design/colors" "^6.0.0"
+    "@ant-design/icons-svg" "^4.0.0"
+    "@babel/runtime" "^7.11.2"
+    classnames "^2.2.6"
+    rc-util "^5.9.4"
 
 "@ant-design/react-native@^4.2.0":
   version "4.2.0"
@@ -1135,7 +1158,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.8.4":
   version "7.15.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
   integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
@@ -1194,6 +1217,11 @@
   dependencies:
     exec-sh "^0.3.2"
     minimist "^1.2.0"
+
+"@ctrl/tinycolor@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
+  integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
@@ -1334,7 +1362,7 @@
     base64-js "^1.2.3"
     xmlbuilder "^14.0.0"
 
-"@expo/vector-icons@^12.0.4":
+"@expo/vector-icons@^12.0.4", "@expo/vector-icons@^12.0.5":
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-12.0.5.tgz#bc508ad05fb7e9a3e008704977cfec6c18aa7728"
   integrity sha512-zWvHBmkpbi1KrPma6Y+r/bsGI6MjbM1MBSe6W9A4uYMLhNI5NR4JtTnqxhf7g1XdpaDtBdv5aOWKEx4d5rxnhg==
@@ -1474,6 +1502,11 @@
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+"@react-native-community/cameraroll@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@react-native-community/cameraroll/-/cameraroll-4.0.4.tgz#3e2567ce54e3985e8e0a51832dfa0e1c5317f75b"
+  integrity sha512-3SY96Xh1yQjV5M7dFisl5kQmrO/K09URarZwmTN801KEalOoo/opsd/e8Vu1dwSKe0NGCK7A2u0oJQpeNbWbnA==
+
 "@react-native-community/cli-debugger-ui@^4.13.1":
   version "4.13.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.13.1.tgz#07de6d4dab80ec49231de1f1fbf658b4ad39b32c"
@@ -1599,10 +1632,27 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
   integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
 
+"@react-native-community/segmented-control@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/segmented-control/-/segmented-control-2.2.2.tgz#4014256819ab8f40f6bc3a3929ff14a9d149cf04"
+  integrity sha512-14+4HnGVrg3USqMzcHCPCqPmPmaEj0ogQH4pHRFXjoVvJokzidXBcYyXl5yrwFcKGW6zTXI6Fx9Qgt4ydtS6tw==
+
+"@react-native-community/slider@^4.1.6":
+  version "4.1.6"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.1.6.tgz#5e6d886b8369b532bf4b91c3cda50ba43b8952ad"
+  integrity sha512-WI7VUWKQlj0LPK453RmpOEKj6gpe4gmSL5B6cDnhO6mqytlCCz92hVja5ZG6X/2NsHLTCl99GLVKXvCfkaY5xw==
+  dependencies:
+    flow-bin "0.113.0"
+
 "@react-native-masked-view/masked-view@0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@react-native-masked-view/masked-view/-/masked-view-0.2.4.tgz#305a548abd47dee494a38f90016432d3a6e4164c"
   integrity sha512-2Y9OXWHRutYmdyW+bNMaFTW8uTBpaaK20xdIFoVtqahEOO9++B+ut3CAWKPZcdRtb9ikG0LUKChGqMeocg0PGA==
+
+"@react-native-picker/picker@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.1.0.tgz#1ef22d4e9b2e555d44b43453f51a46d8631f3182"
+  integrity sha512-iJ/QaDrBMBaW6cFuQyR3DXzcn2h7c5O7mGgmNLCBQHTTtLNBZR+Sxogy6YleFPeToNdysG5mTTkXqBmlWHMQqg==
 
 "@react-navigation/core@^6.0.1":
   version "6.0.1"
@@ -2374,6 +2424,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
 cli-cursor@^2.1.0:
   version "2.1.0"
@@ -3279,6 +3334,11 @@ find-up@~5.0.0:
   dependencies:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
+
+flow-bin@0.113.0:
+  version "0.113.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.113.0.tgz#6457d250dbc6f71ca51e75f00a96d23cde5d987a"
+  integrity sha512-76uE2LGNe50wm+Jup8Np4FBcMbyy5V2iE+K25PPIYLaEMGHrL1jnQfP9L0hTzA5oh2ZJlexRLMlaPqIYIKH9nw==
 
 fontfaceobserver@^2.1.0:
   version "2.1.0"
@@ -5110,6 +5170,15 @@ range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
+rc-util@^5.9.4:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.14.0.tgz#52c650e27570c2c47f7936c7d32eaec5212492a8"
+  integrity sha512-2vy6/Z1BJUcwLjm/UEJb/htjUTQPigITUIemCcFEo1fQevAumc9sA32x2z5qyWoa9uhrXbiAjSDpPIUqyg65sA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    react-is "^16.12.0"
+    shallowequal "^1.1.0"
+
 react-devtools-core@^4.6.0:
   version "4.18.0"
   resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.18.0.tgz#06b2375dcea7858c957d1779cc2339d2a0af200a"
@@ -5143,7 +5212,7 @@ react-native-collapsible@^1.6.0:
   resolved "https://registry.yarnpkg.com/react-native-collapsible/-/react-native-collapsible-1.6.0.tgz#ca261ffff16914f872059bb0972e3a78c4b37f9c"
   integrity sha512-beZjdgbT9Y/Pg591Xy5XkKG20HffJiVad4n9bfcUF/f783A+tvOVXnqvbS58Lkaym93mi4jcDPMuW9Vc1t6rqg==
 
-react-native-gesture-handler@~1.10.2:
+react-native-gesture-handler@^1.10.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"
   integrity sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw==
@@ -5161,6 +5230,11 @@ react-native-modal-popover@^2.0.1:
   dependencies:
     lodash "^4.17.21"
     prop-types "^15.7.2"
+
+react-native-pager-view@^5.4.4:
+  version "5.4.4"
+  resolved "https://registry.yarnpkg.com/react-native-pager-view/-/react-native-pager-view-5.4.4.tgz#83a873a82748440696ca0e0fd07a77477b854a78"
+  integrity sha512-5zyol+FZ9X4N4OEz92IyaFFROR3KtgAgTmgqlUvG59Eigf+f6aWs5fvcbWwzuz/AlLZbrxIDrnLmSpMUOK57ww==
 
 react-native-reanimated@~2.2.0:
   version "2.2.1"

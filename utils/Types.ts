@@ -1,6 +1,8 @@
 export type RootStackParamList = {
-  AnimatedScrollView:undefined;
-  TransitionNavShared:undefined;
+  'animated-scroll-view':undefined;
+  'transition-nav-shared-element':undefined;
+  'bottom-sheet':undefined;
+  'home':undefined;
 };
 
 export type TransitionNavSharedParamList = {

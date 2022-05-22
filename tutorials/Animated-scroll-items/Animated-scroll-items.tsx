@@ -4,9 +4,10 @@ import faker from 'faker'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationProp } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { RootStackParamList } from '../../utils/Types';
 
 interface IProps {
-  navigation: NavigationProp<any, any>
+  navigation: NavigationProp<RootStackParamList, 'animated-scroll-view'>
 }
 
 faker.seed(10);
@@ -65,7 +66,7 @@ export default function AnimatedScrollItems(props: IProps) {
             outputRange: [1, 1, 1, 0]
           })
 
-          return <TouchableOpacity onPress={()=>{props.navigation.navigate('TransitionNavShared')}}>
+          return <TouchableOpacity>
             <Animated.View
               style={{
                 flexDirection: "row",

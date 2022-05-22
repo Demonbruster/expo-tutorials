@@ -6,10 +6,11 @@ import { SharedElement } from 'react-navigation-shared-element';
 
 import { SPACING } from '../../utils/extras'
 import Layout from '../../utils/Layout'
+import { TransitionNavSharedParamList } from '../../utils/Types';
 import salonData from './salon'
 
 interface Props {
-  navigation: NavigationProp<any, any>
+  navigation: NavigationProp<TransitionNavSharedParamList, 'List'>
 }
 
 const { height, width } = Layout.window;
@@ -25,6 +26,7 @@ const SalonList = (props: Props) => {
         contentContainerStyle={{ padding: SPACING }}
         renderItem={({ item }) => {
           return <TouchableOpacity onPress={() => {
+            //@ts-ignore
             props.navigation.navigate('Details', { item })
           }}
             style={{ marginBottom: SPACING, height: ITEM_HEIGHT }}>
@@ -40,7 +42,7 @@ const SalonList = (props: Props) => {
                 <Text style={styles.name}>{item.name}</Text>
               </SharedElement>
               <SharedElement id={`item.${item.key}.jobTitle`}>
-              <Text style={styles.jobTitle}>{item.jobTitle}</Text>
+                <Text style={styles.jobTitle}>{item.jobTitle}</Text>
               </SharedElement>
               <SharedElement id={`item.${item.key}.image`} style={styles.image}>
                 <Image style={styles.image} source={{ uri: item.image }} />

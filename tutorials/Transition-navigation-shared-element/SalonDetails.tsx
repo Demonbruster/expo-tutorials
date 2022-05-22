@@ -9,9 +9,10 @@ import { SPACING } from '../../utils/extras'
 import Layout from '../../utils/Layout';
 import { ITEM_HEIGHT } from './SalonList';
 import { detailsIcons } from './salon';
+import { RootStackParamList } from '../../utils/Types';
 
 interface Props {
-  navigation: NavigationProp<any, any>,
+  navigation: NavigationProp<RootStackParamList, 'transition-nav-shared-element'>,
   route: any
 }
 

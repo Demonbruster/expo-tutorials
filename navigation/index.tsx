@@ -7,6 +7,7 @@ import { createSharedElementStackNavigator } from 'react-navigation-shared-eleme
 import SalonList from "../tutorials/Transition-navigation-shared-element/SalonList";
 import SalonDetails from "../tutorials/Transition-navigation-shared-element/SalonDetails";
 import { RootStackParamList, TransitionNavSharedParamList } from "../utils/Types";
+import home from '../screens/home';
 
 export function Navigation() {
   return (
@@ -20,9 +21,10 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="AnimatedScrollView" component={AnimatedScrollItems} />
-      <Stack.Screen name="TransitionNavShared" component={TransitionNavSharedNavigator}/>
+    <Stack.Navigator initialRouteName='home' screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='home' component={home} />
+      <Stack.Screen name='animated-scroll-view' component={AnimatedScrollItems} />
+      <Stack.Screen name='transition-nav-shared-element' component={TransitionNavSharedNavigator} />
     </Stack.Navigator>
   )
 }

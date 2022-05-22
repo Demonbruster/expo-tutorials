@@ -16,7 +16,7 @@ const Sheet = () => {
 
   const scrollTo = useCallback((y: number) => {
     'worklet';
-    translateY.value = withSpring(y, { damping: 10, mass: 1, stiffness: 100 })
+    translateY.value = withSpring(y, { damping: 15, mass: 1, stiffness: 100 })
   }, [])
 
   const gesture = Gesture.Pan().onStart(() => {
@@ -25,10 +25,12 @@ const Sheet = () => {
     translateY.value = translationY + context.value.y
     translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y)
     translateY.value = Math.min(translateY.value, MIN_TRANSLATE_Y)
-  }).onEnd(() => {
-    if (translateY.value < -SCREEN_HEIGHT / 1.7) {
+  }).onEnd(({
+    velocityY,
+  }) => {
+    if ( velocityY < -500) {
       scrollTo(MAX_TRANSLATE_Y)
-    }else  if (translateY.value > -SCREEN_HEIGHT) {
+    }else  if ( velocityY > 500) {
       scrollTo(MIN_TRANSLATE_Y)
     }
   });
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bottomSheetContainer: {
-    height: SCREEN_HEIGHT,
+    height: SCREEN_HEIGHT+100,
     width: '100%',
     backgroundColor: '#fff',
     position: 'absolute',

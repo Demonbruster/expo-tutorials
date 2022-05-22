@@ -8,6 +8,7 @@ import SalonList from "../tutorials/Transition-navigation-shared-element/SalonLi
 import SalonDetails from "../tutorials/Transition-navigation-shared-element/SalonDetails";
 import { RootStackParamList, TransitionNavSharedParamList } from "../utils/Types";
 import home from '../screens/home';
+import BottomSheet from '../tutorials/BottomSheet';
 
 export function Navigation() {
   return (
@@ -25,6 +26,7 @@ function RootNavigator() {
       <Stack.Screen name='home' component={home} />
       <Stack.Screen name='animated-scroll-view' component={AnimatedScrollItems} />
       <Stack.Screen name='transition-nav-shared-element' component={TransitionNavSharedNavigator} />
+      <Stack.Screen name='bottom-sheet' component={BottomSheet} />
     </Stack.Navigator>
   )
 }

@@ -28,9 +28,9 @@ const Sheet = () => {
   }).onEnd(({
     velocityY,
   }) => {
-    if ( velocityY < -500) {
+    if (velocityY < -500) {
       scrollTo(MAX_TRANSLATE_Y)
-    }else  if ( velocityY > 500) {
+    } else if (velocityY > 500) {
       scrollTo(MIN_TRANSLATE_Y)
     }
   });
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bottomSheetContainer: {
-    height: SCREEN_HEIGHT+100,
+    height: SCREEN_HEIGHT + 100,
     width: '100%',
     backgroundColor: '#fff',
     position: 'absolute',
